@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dublinblog.herokuapp.com', 'dublinblog-2feb15d5c713.herokuapp.com','8000-sabrinastoek-dublinblog-rr7o0kyxzz5.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = ['dublinblog.herokuapp.com','8000-sabrinastoek-dublinblog-rr7o0kyxzz5.ws-eu105.gitpod.io', 'dublinblog-2feb15d5c713.herokuapp.com']
 
 
 # Application definition
@@ -43,11 +43,25 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'cloudinary',
     'django.contrib.staticfiles',
+    'django_summernote',
+    'crispy_forms',
     'blog',
 ]
+
+SITE_ID = 1
+
+ACCOUNT_SIGNUP_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK= 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -143,3 +158,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'

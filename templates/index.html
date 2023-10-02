@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<main class="hero-section" id="hero-section">
+    <!-- background -->
+    <div class="background">
+        <img src="../static/images/main_img.jpg" class="background-image" alt="hero-section-image">
+
+                
+        <!-- grid -->
+        <div class="slider-grid">
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+        </div> 
+
+    </div>
+
+    <div class="hero-section-content"> 
+        <h1 class="hero-section-title">Dublin Discovery</h1>
+        <p class="hero-section-sub-heading"><a href="#">Log in to join our community</a></p>
+    </div>
+
+    <img src="../static/images/down arrow.png" class="scroll-down-icon"  alt="scroll down">
+</main>
+
+<!-- hero section ends -->
+
+</header>
+
+<section class="about-us">
+<h1 class="about-us-title">About Us</h1>
+<p  class="about-us-content">
+    Welcome to Dublin Discovery, your passport to the heart of Dublin's culture and flavor!
+    Our website is your gateway to savor the culinary delights of Dublin, explore must-visit tourist
+    attractions, and uncover the legendary pubs that give this city its unique character.
+</p>
+<p class="about-us-content">
+    But Dublin Discovery is more than just a travel blog; it's a vibrant community where you can connect 
+    with fellow adventurers and share your own remarkable experiences in the enchanting city of Dublin.
+     Join us as we delve into the vibrant tapestry of this captivating metropolis, one story at a time.
+</p>
+
+</section> 
+<div class="post-list-container">
+<ul class="post-list">
+    {% for post in last_three_posts %}
+        <li class="post-item">
+            <a href="{% url 'post_detail' post.slug %}">
+                <div class="post-content">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    <div class="post-meta">
+                        <span class="post-category">{{ post.category }}</span>
+                        <span class="post-divider">|</span>
+                        <span class="post-author">Author: {{ post.author.username }}</span>
+                    </div>
+                    <p class="post-excerpt">{{ post.body|striptags|truncatewords_html:40|safe }}</p>
+                    <p class="post-info">Created: {{ post.updated_on }}</p>
+                    <div class="post-info">
+                        <span class="post-likes"><i class="fa-regular fa-heart"></i>  {{ post.number_of_likes }}</span>
+                        <span class="post-comments"><i class="fa-regular fa-comment"></i> {{ post.approved_comments_count }}</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    {% empty %}
+        <li class="no-posts">No posts available</li>
+    {% endfor %}
+</ul>
+</div>
+
+{%endblock%}
