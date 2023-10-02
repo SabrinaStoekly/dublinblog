@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <h4 class="add-post"><a href="{% url 'add_post' %}">Add Post</a></h4>
-{% else %}
-    <p>You need to be logged in to add posts.</p>
+{% if not user.is_authenticated %}
+    <p class="login-message">You need to be logged in to make posts.</p>
 {% endif %}
-    <div class="post-list-container">
+</div>
+    <div class="post-list-container-all-posts">
         <ul class="post-list">
             {% for post in view_all_posts %}
                 <li class="post-item">

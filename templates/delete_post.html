@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="delete-post-container">
     <h3>Delete Post?</h3>
-    <h4>
-        Are you sure you want to delete the post titled:
+    <h4 class="delete-post-message">
+        Are you sure you want to delete the post:
         <br><br>
         <strong>{{ post.title }}</strong>
     </h4>
@@ -12,11 +12,8 @@
         <form method="post">
             {% csrf_token %}
             <p><em>This action cannot be undone!</em></p>
-            <button><strong>Delete</strong></button>
+            <button class="delete-button">Delete</button>
         </form>
-        <button>
-            <a href="{% url 'home' %}">Return</a>
-        </button>
     </div>
 </div>
 {% endblock %}
