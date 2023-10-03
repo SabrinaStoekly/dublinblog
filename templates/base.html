@@ -42,17 +42,23 @@
             <li class="link-item">
                 <a href="{% url 'home' %}"> <i class="fa-solid fa-location-dot" class="logo"></i></a>
             </li>        
-            <li class="link-item">
+            <li class="link-item community">
                 <a href="{% url 'view_all_posts' %}"> Community Connect </a>
             </li>
         </ul>
     </nav>
-
    <main>
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
 </main>
+
+    <!-- Footer -->
+    <footer class="">
+            <a href="https://twitter.com/?lang=pt" target="_blank" rel="noopener" aria-label="visit our Twitter page"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="visit our Instagram page"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/en/" target="_blank" rel="noopener" aria-label="visit our TikTok page"><i class="fa-brands fa-tiktok"></i></a>            
+    </footer>
 
 <script src="https://kit.fontawesome.com/81e5b05463.js" crossorigin="anonymous"></script>
 

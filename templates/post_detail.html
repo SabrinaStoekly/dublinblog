@@ -35,20 +35,7 @@
     </div>    
 </div>
     
-<div class="comments-container">
-    <div class="comments-heading">
-        <h3>Comments:</h3>
-    </div>
-    <div class="individual-comments">
-        {% for comment in comments %}
-        <div class="comment">
-            <p class="comment-author">{{ comment.author }}
-                <span class="comment-created">{{ comment.created_on }} wrote:</span>
-            </p>
-            {{ comment.body | linebreaks }}
-        </div>            
-        {% endfor %}
-    </div>
+<div class="comments-container">    
     <div class="comment-form-container">
         {% if commented %}
         <div class="comment-approval-message">
@@ -63,7 +50,17 @@
             <button type="submit" class="submit-button">Submit</button>
         </form>
         {% endif %}
-        {% endif %}
+        {% endif %}        
+    </div>
+    <div class="individual-comments">
+        {% for comment in comments %}
+        <div class="comment">
+            <p class="comment-author">{{ comment.author }}
+                <span class="comment-created">{{ comment.created_on }} wrote:</span>
+            </p>
+            {{ comment.body | linebreaks }}
+        </div>            
+        {% endfor %}
     </div>
 </div>
 

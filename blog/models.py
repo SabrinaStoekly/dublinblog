@@ -59,8 +59,7 @@ def generate_post_slug(sender, instance, *args, **kwargs):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name="comments")
-    author = models.CharField(max_length=80)
-    email = models.EmailField()
+    author = models.CharField(max_length=80)    
     body = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
     approved = models.BooleanField(default=False)

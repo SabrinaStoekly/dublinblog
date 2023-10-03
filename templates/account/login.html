@@ -6,14 +6,14 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
 
 {% block content %}
-<div class="login-container ">
+<div class="login-container">
   <h1>{% trans "Sign In" %}</h1>
 
   <p>{% blocktrans %}If you have not created an account yet,<br> then please
   <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 
 
-  <form class="login" method="POST" action="{% url 'account_login' %}">
+  <form method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
     {{ form.as_p }}
     {% if redirect_field_value %}
@@ -21,5 +21,5 @@
     {% endif %}  
     <button class="sign-out-in-button" type="submit">{% trans "Sign In" %}</button>
   </form>
-</div>
+<div>
 {% endblock content %}

@@ -114,24 +114,27 @@ class UpdatePost(View):
             "post": post,
             "comments": comments,
             "liked": liked,
-            "comment_form": CommentForm()
+            "comment_form": CommentForm(),
+            "form": UpdatePostForm(instance=post),
         }
 
         return render(request, self.template_name, context)
 
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
-        comment_form = CommentForm(request.POST)
+        form = UpdatePostForm(request.POST, instance=post)
 
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.approved = True 
-            comment.save()
-        else:
-             comment_form = CommentForm()
-            
-        return redirect("post_detail", slug=slug)
+        if form.is_valid():
+            form.save()
+            return redirect("post_detail", slug=slug)
+        
+        context = {
+            "post": post,
+            "comment_form": CommentForm(),
+            "form": form,
+        }
+
+        return render(request, self.template_name, context)
 
 
 # View to delete a post
