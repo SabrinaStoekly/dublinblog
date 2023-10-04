@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if not user.is_authenticated %}
-    <p class="login-message">You need to be logged in to make posts.</p>
-{% endif %}
 </div>
     <div class="post-list-container-all-posts">
         <ul class="post-list">
@@ -31,4 +28,16 @@
             {% endfor %}
         </ul>
         </div>
+            <!-- Footer -->
+    <footer >            
+        <div class="">
+            <p>Stay Connected with Us on Social Media!</p>
+            <div>
+                <a href="https://twitter.com/?lang=pt" target="_blank" rel="noopener" aria-label="visit our Twitter page"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="visit our Instagram page"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/en/" target="_blank" rel="noopener" aria-label="visit our TikTok page"><i class="fa-brands fa-tiktok"></i></a>            
+            </div>
+        </div>
+        
+</footer>
 {%endblock%}
