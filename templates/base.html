@@ -1,11 +1,10 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
+    {% load static %}
 <head>
-    <title>Blog</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dublin Discovery Blog</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;300;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,8 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">       
 </head>
 
 <body>
@@ -26,7 +24,7 @@
         <ul class="links-container">
             {% if user.is_authenticated %}
             <li class="link-item"> 
-                <a href="{% url 'account_logout' %}"> Logout </a>
+                <a href="{% url 'account_logout' %}">Logout</a>
             </li class="link-item">
                 <a href="{% url 'add_post' %}">Add Post</a>
             <li>
@@ -40,7 +38,7 @@
             </li>
             {% endif %}
             <li class="link-item">
-                <a href="{% url 'home' %}"> <i class="fa-solid fa-location-dot" class="logo"></i></a>
+                <a href="{% url 'home' %}"> <i class="fa-solid fa-location-dot logo"></i></a>
             </li>        
             <li class="link-item community">
                 <a href="{% url 'view_all_posts' %}"> Community Connect </a>
